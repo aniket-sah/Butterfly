@@ -87,7 +87,7 @@ class Butterfly:
             for anchor in social_anchor_list:
                 link_list.append(anchor.attrs["href"])
         except Exception as e:
-            print(e);
+            print(e)
             print("[!] Some error occured during", "__get_member_links")
             print("  \_ Don't worry program won't crash")
             
@@ -96,7 +96,7 @@ class Butterfly:
     def get_branch_links(self):
         main_page_url="https://kiit.ac.in/academics/faculty-kiit-university/"
         
-        main_page_body=fetch.get(main_page_url, headers=self.headers).text;
+        main_page_body=fetch.get(main_page_url, headers=self.headers).text
         main_page_body=BeautifulSoup(main_page_body, 'html.parser')
 
         main_page_links_container=main_page_body.find_all(class_="fusion-builder-row")[2]
@@ -107,7 +107,7 @@ class Butterfly:
             try:
                 branch_links.append(anchor.attrs["href"])
             except Exception as e:
-                print(e);
+                print(e)
                 print("[!] One element didn't have 'href' as attribute")
                 print("  \_ Don't worry program won't crash")
 
@@ -159,5 +159,5 @@ if __name__ == "__main__":
     urls=parse.get_branch_links()
     
     #spread operator
-    parse.get_faculty_details(*urls);
+    parse.get_faculty_details(*urls)
     print(f"[+] Saved to {save_file}:)")
